@@ -17,15 +17,20 @@ public class Member extends BaseEntity{
 
     private String name;
 
+    private String account;
+    private String password;
+
     @Embedded
     private Address address;
 
     @OneToMany(mappedBy = "member")
     private List<Post> posts = new ArrayList<>();
 
-
-
     protected Member(){}
 
+    public Member(String name, String account){
+        this.name = name;
+        this.account = account;
+    }
 
 }
