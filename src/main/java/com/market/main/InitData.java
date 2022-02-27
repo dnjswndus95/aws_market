@@ -1,6 +1,6 @@
 package com.market.main;
 
-import com.market.main.entity.Member;
+import com.market.main.entity.member.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,8 +29,8 @@ public class InitData {
             Member member1 = new Member("원주연", "dnjswndus95");
             Member member2 = new Member("최진호", "chlwlsgh94");
 
-            em.persist(member1);
-            em.persist(member2);
+       //     em.persist(member1);
+         //   em.persist(member2);
         }
     }
 }

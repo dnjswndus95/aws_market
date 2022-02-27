@@ -1,6 +1,9 @@
-package com.market.main.entity;
+package com.market.main.entity.member;
 
 
+import com.market.main.entity.Address;
+import com.market.main.entity.BaseEntity;
+import com.market.main.entity.Post;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -9,7 +12,7 @@ import java.util.List;
 
 @Entity
 @Getter
-public class Member extends BaseEntity{
+public class Member extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "MEMBER_ID")
@@ -31,6 +34,13 @@ public class Member extends BaseEntity{
     public Member(String name, String account){
         this.name = name;
         this.account = account;
+    }
+
+    public Member(String name, String account, String password, Address address){
+        this.name = name;
+        this.account = account;
+        this.password = password;
+        this.address = address;
     }
 
 }

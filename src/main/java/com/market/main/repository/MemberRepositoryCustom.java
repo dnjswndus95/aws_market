@@ -1,10 +1,7 @@
 package com.market.main.repository;
 
 
-import com.market.main.entity.Member;
-
-import javax.swing.text.html.Option;
-import java.util.Optional;
+import com.market.main.entity.member.Member;
 
 public interface MemberRepositoryCustom {
 

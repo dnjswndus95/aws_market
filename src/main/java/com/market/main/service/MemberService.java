@@ -1,6 +1,6 @@
 package com.market.main.service;
 
-import com.market.main.entity.Member;
+import com.market.main.entity.member.Member;
 import com.market.main.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

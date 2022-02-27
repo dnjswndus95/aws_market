@@ -1,5 +1,6 @@
 package com.market.main.entity;
 
+import com.market.main.entity.member.Member;
 import lombok.Getter;
 
 import javax.persistence.*;
