@@ -5,6 +5,7 @@ import com.market.main.entity.Address;
 import com.market.main.entity.BaseEntity;
 import com.market.main.entity.Post;
 import lombok.Getter;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -29,6 +30,10 @@ public class Member extends BaseEntity {
     @OneToMany(mappedBy = "member")
     private List<Post> posts = new ArrayList<>();
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ROLE_ID")
+    private Role role;
+
     protected Member(){}
 
     public Member(String name, String account){
@@ -42,5 +47,22 @@ public class Member extends BaseEntity {
         this.password = password;
         this.address = address;
     }
+
+    public Member(MemberForm memberForm){
+        this.name = memberForm.getName();
+        this.account = memberForm.getAccount();
+        this.password = memberForm.getPassword();
+        Address address = new Address(memberForm.getCity(), memberForm.getStreet(), memberForm.getZipcode());
+        this.address = address;
+    }
+
+    /**
+     *  비밀번호 확인
+     */
+    /*public void encodePassword(PasswordEncoder passwordEncoder){
+        this.password = passwordEncoder.encode(this.password);
+    }*/
+
+
 
 }

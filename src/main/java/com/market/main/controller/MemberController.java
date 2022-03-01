@@ -1,6 +1,7 @@
 package com.market.main.controller;
 
 import com.market.main.entity.Address;
+import com.market.main.entity.member.AccountValidator;
 import com.market.main.entity.member.Member;
 import com.market.main.entity.member.MemberForm;
 import com.market.main.service.MemberService;
@@ -19,11 +20,17 @@ import java.util.List;
 public class MemberController {
 
     private final MemberService memberService;
+    private final AccountValidator accountValidator;
 
     /*@GetMapping("/members")
     public List<Member> findMembers(){
         return memberService.findAllMember();
     }*/
+
+    @GetMapping("/login")
+    public String login(){
+        return "/members/login";
+    }
 
     @GetMapping("/members/new")
     public String createMemberForm(Model model){
@@ -33,15 +40,16 @@ public class MemberController {
 
     @PostMapping("/members/new")
     public String createMember(MemberForm form, BindingResult result){
+        accountValidator.validate(form, result);
+
         if(result.hasErrors())
-            return "members/createMemberForm";
-
-        Address address = new Address(form.getCity(), form.getStreet(), form.getZipcode());
-        Member member = new Member(form.getName(), form.getAccount(), form.getPassword(), address);
-
-        memberService.join(member);
-
-        return "redirect:/";
+        {
+            return "redirect:/";
+        }
+        else{
+            memberService.save(form);
+            return "redirect:/";
+        }
     }
 
     @GetMapping("/members")
