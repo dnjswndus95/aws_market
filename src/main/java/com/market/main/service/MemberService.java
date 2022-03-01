@@ -23,10 +23,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MemberService implements UserDetailsService {
 
-    @Autowired
-    MemberRepository memberRepository;
-
-    private PasswordEncoder passwordEncoder;
+    private final MemberRepository memberRepository;
+    private final PasswordEncoder passwordEncoder;
 
 
     @Override
@@ -49,7 +47,7 @@ public class MemberService implements UserDetailsService {
     @Transactional
     public Member save(MemberForm memberForm){
         Member member = new Member(memberForm);
-   //     member.encodePassword(passwordEncoder);
+        member.encodePassword(passwordEncoder);
         return memberRepository.save(member);
     }
 

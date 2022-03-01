@@ -1,11 +1,10 @@
-<!--
-<body class="text-center">
-<form class="form-signin" th:action="@{/members/register}" method="post" th:object="${accountRequestDto}"> &lt;!&ndash; 요청 보내기&ndash;&gt;
+<body class="text-center" xmlns:th="http://www.w3.org/1999/xhtml">
+<form class="form-signin" th:action="@{/members/register}" method="post" th:object="${memberForm}"> <!-- 요청 보내기-->
     <h1 class="h3 mb-3 font-weight-normal">회원가입</h1>
 
-    <label for="username" class="sr-only">username</label>
-    <input type="text" id="username" th:classappend="${#fields.hasErrors('username')} ? 'is-invalid'" name="username" class="form-control" required autofocus>
-    <div class="invalid-feedback" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+    <label for="account" class="sr-only">name</label>
+    <input type="text" id="account" th:classappend="${#fields.hasErrors('account')} ? 'is-invalid'" name="account" class="form-control" required autofocus>
+    <div class="invalid-feedback" th:if="${#fields.hasErrors('account')}" th:errors="*{account}">
         중복회원
     </div>
 
@@ -19,4 +18,4 @@
     <input type="password" id="password_confirm" name="password_confirm" class="form-control" placeholder="password_confirm" required>
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-</form>-->
+</form>

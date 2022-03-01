@@ -35,16 +35,14 @@ public class MemberController {
     @GetMapping("/members/new")
     public String createMemberForm(Model model){
         model.addAttribute("memberForm", new MemberForm());
-        return "members/createMemberForm";
+        return "/members/createMemberForm";
     }
 
     @PostMapping("/members/new")
     public String createMember(MemberForm form, BindingResult result){
         accountValidator.validate(form, result);
-
-        if(result.hasErrors())
-        {
-            return "redirect:/";
+        if(result.hasErrors()) {
+            return "/members/register";
         }
         else{
             memberService.save(form);

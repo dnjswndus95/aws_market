@@ -20,9 +20,9 @@ public class AccountValidator implements Validator {
     @Override
     public void validate(Object obj, Errors errors) {
         MemberForm MemberForm = (MemberForm) obj;
-      /*  if(!((MemberForm) obj).getPassword().equals(((MemberForm) obj).getPassword_confirm()))
+        if(!((MemberForm) obj).getPassword().equals(((MemberForm) obj).getPassword_confirm()))
             errors.rejectValue("password", "key", "비밀번호가 일치하지 않습니다.");
-*/
+
         if(memberRepository.findByAccount(((MemberForm) obj).getAccount()) != null)
             errors.rejectValue("account", "key", "이미 존재하는 ID입니다.");
     }

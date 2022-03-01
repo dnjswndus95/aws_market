@@ -24,6 +24,8 @@ public class Member extends BaseEntity {
     private String account;
     private String password;
 
+    private String password_confirm;
+
     @Embedded
     private Address address;
 
@@ -52,17 +54,18 @@ public class Member extends BaseEntity {
         this.name = memberForm.getName();
         this.account = memberForm.getAccount();
         this.password = memberForm.getPassword();
+        this.password_confirm = memberForm.getPassword_confirm();
         Address address = new Address(memberForm.getCity(), memberForm.getStreet(), memberForm.getZipcode());
         this.address = address;
     }
 
+
+
     /**
      *  비밀번호 확인
      */
-    /*public void encodePassword(PasswordEncoder passwordEncoder){
+    public void encodePassword(PasswordEncoder passwordEncoder){
         this.password = passwordEncoder.encode(this.password);
-    }*/
-
-
+    }
 
 }
