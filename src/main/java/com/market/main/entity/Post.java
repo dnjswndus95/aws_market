@@ -26,4 +26,17 @@ public class Post extends BaseEntity{
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Item item;
 
+    protected Post(){
+
+    }
+
+    public Post(PostForm form){
+        this.title = form.getTitle();
+        this.content = form.getContent();
+    }
+
+    /**
+     * Member Parameter로 생성하는 생성자는
+     * 로그인 완료된 이후에 가능할듯
+     */
 }

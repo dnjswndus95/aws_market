@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+<style>
+ .fieldError {
+ border-color: #bd2130;
+ }
+</style>
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <div>
+        <a class="btn btn-lg btn-secondary" href="/post/new">글 쓰기</a>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+<!--                <th>작성자</th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="post : ${posts}">
+                <td th:text="${post.id}"></td>
+                <td th:text="${post.title}"></td>
+               <!-- <td th:text="${post.member.name}"></td>-->
+            </tr>
+            </tbody>
+        </table>
+        <div th:replace="fragments/footer :: footer" />
+    </div>
+</div>
