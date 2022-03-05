@@ -3,7 +3,7 @@ package com.market.main.entity.member;
 
 import com.market.main.entity.Address;
 import com.market.main.entity.BaseEntity;
-import com.market.main.entity.Post;
+import com.market.main.entity.posts.Post;
 import lombok.Getter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 

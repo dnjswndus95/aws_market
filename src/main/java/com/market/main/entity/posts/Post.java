@@ -1,7 +1,11 @@
-package com.market.main.entity;
+package com.market.main.entity.posts;
 
+import com.market.main.entity.BaseEntity;
+import com.market.main.entity.Item;
 import com.market.main.entity.member.Member;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -11,12 +15,16 @@ import javax.persistence.*;
 
 @Entity
 @Getter
-public class Post extends BaseEntity{
+@NoArgsConstructor
+public class Post extends BaseEntity {
 
     @Id @GeneratedValue
     private Long id;
 
+    @Column(length = 500, nullable = false)
     private String title;
+
+    @Column(columnDefinition = "TEXT", nullable = false) // 타입을 TEXT로 변경경
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -26,13 +34,16 @@ public class Post extends BaseEntity{
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Item item;
 
-    protected Post(){
 
+    @Builder
+    public Post(String title, String content){
+        this.title = title;
+        this.content = content;
     }
 
-    public Post(PostForm form){
-        this.title = form.getTitle();
-        this.content = form.getContent();
+    public void update(String title, String content){
+        this.title = title;
+        this.content = content;
     }
 
     /**

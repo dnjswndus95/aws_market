@@ -1,7 +1,7 @@
 package com.market.main.controller;
 
-import com.market.main.entity.Post;
-import com.market.main.entity.PostForm;
+import com.market.main.entity.posts.Post;
+import com.market.main.entity.posts.PostRequestDto;
 import com.market.main.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -26,18 +26,18 @@ public class PostController {
     }
 
     @PostMapping("/post/new")
-    public String registerPost(PostForm postForm, BindingResult result){
+    public String registerPost(PostRequestDto postRequestDto, BindingResult result){
         if(result.hasErrors())
             return "post/createPostForm";
         else{
-            postService.registerPost(postForm);
+            postService.registerPost(postRequestDto);
             return "redirect:/";
         }
     }
 
     @GetMapping("/post/new")
     public String createPostForm(Model model){
-        model.addAttribute("postForm", new PostForm());
+        model.addAttribute("postRequestDto", new PostRequestDto());
         return "/post/createPostForm";
     }
 
