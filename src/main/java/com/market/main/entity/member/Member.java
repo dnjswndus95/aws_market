@@ -4,6 +4,7 @@ package com.market.main.entity.member;
 import com.market.main.entity.Address;
 import com.market.main.entity.BaseEntity;
 import com.market.main.entity.posts.Post;
+import lombok.Builder;
 import lombok.Getter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -24,23 +25,38 @@ public class Member extends BaseEntity {
     private String account;
     private String password;
 
+    @Column(nullable = false)
+    private String email;
+
+    private String picture;
+
     private String password_confirm;
 
     @Embedded
     private Address address;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
+
+
     @OneToMany(mappedBy = "member")
     private List<Post> posts = new ArrayList<>();
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ROLE_ID")
-    private Role role;
 
     protected Member(){}
 
     public Member(String name, String account){
         this.name = name;
         this.account = account;
+    }
+
+    @Builder
+    public Member(String name, String email, String picture, Role role){
+        this.name = name;
+        this.email = email;
+        this.picture = picture;
+        this.role = role;
+
     }
 
     public Member(String name, String account, String password, Address address){
@@ -59,6 +75,16 @@ public class Member extends BaseEntity {
         this.address = address;
     }
 
+    public Member update(String name, String picture){
+        this.name = name;
+        this.picture = picture;
+
+        return this;
+    }
+
+    public String getRoleKey(){
+        return this.role.getKey();
+    }
 
 
     /**
@@ -67,5 +93,7 @@ public class Member extends BaseEntity {
     public void encodePassword(PasswordEncoder passwordEncoder){
         this.password = passwordEncoder.encode(this.password);
     }
+
+
 
 }

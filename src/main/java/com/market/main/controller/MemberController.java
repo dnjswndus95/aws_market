@@ -22,7 +22,7 @@ public class MemberController {
     private final AccountValidator accountValidator;
 
 
-    @GetMapping("/login")
+    @GetMapping("/members/login")
     public String login(){
         return "/members/login";
     }

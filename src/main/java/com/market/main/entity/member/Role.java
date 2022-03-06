@@ -1,21 +1,15 @@
 package com.market.main.entity.member;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-
-@Entity
 @Getter
-public class Role {
+@RequiredArgsConstructor
+public enum Role {
 
-    @Id @GeneratedValue
-    @Column(name = "ROLE_ID")
-    private Long id;
+    GUEST("ROLE_GUEST", "손님"),
+    USER("ROLE_USER", "일반 사용자");
 
-    private String name;
-
-    @OneToMany(mappedBy = "role")
-    private List<Member> members = new ArrayList<>();
+    private final String key;
+    private final String title;
 }

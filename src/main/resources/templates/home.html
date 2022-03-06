@@ -9,6 +9,8 @@
     <div th:replace="fragments/bodyHeader :: bodyHeader" />
     <div class="jumbotron">
         <h1>HELLO SHOP</h1>
+        <p th:if="${member}==null" href="/oauth2/authorization/google" class="btn btn-lg btn-secondary" role="button">Google Login</p>
+        <p th:if="${member}!=null" href="/logout" class="btn btn-info active" role="button">Logout</p>
         <p class="lead">회원 기능</p>
         <p>
             <a class="btn btn-lg btn-secondary" href="/members/new">회원 가입</a>
