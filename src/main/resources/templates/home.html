@@ -9,13 +9,12 @@
     <div th:replace="fragments/bodyHeader :: bodyHeader" />
     <div class="jumbotron">
         <h1>HELLO SHOP</h1>
-        <p th:if="${member}==null" href="/oauth2/authorization/google" class="btn btn-lg btn-secondary" role="button">Google Login</p>
-        <p th:if="${member}!=null" href="/logout" class="btn btn-info active" role="button">Logout</p>
         <p class="lead">회원 기능</p>
         <p>
+            <a th:if="${userName}!=null" class="btn btn-lg btn-secondary" href="/logout" >Logout</a>
+            <a th:if="${userName}==null" class="btn btn-lg btn-secondary" href="/oauth2/authorization/google">Google Login</a>
             <a class="btn btn-lg btn-secondary" href="/members/new">회원 가입</a>
             <a class="btn btn-lg btn-secondary" href="/members">회원 목록</a>
-            <a class="btn btn-lg btn-secondary" href="/login">로그인</a>
         </p>
         <p class="lead">게시글</p>
         <p>

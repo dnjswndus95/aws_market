@@ -25,7 +25,7 @@ public class Member extends BaseEntity {
     private String account;
     private String password;
 
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String email;
 
     private String picture;
@@ -36,7 +36,7 @@ public class Member extends BaseEntity {
     private Address address;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+   // @Column(nullable = false)
     private Role role;
 
 

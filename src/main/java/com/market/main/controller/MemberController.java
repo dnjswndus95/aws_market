@@ -22,10 +22,10 @@ public class MemberController {
     private final AccountValidator accountValidator;
 
 
-    @GetMapping("/members/login")
+   /* @GetMapping("/members/login")
     public String login(){
         return "/members/login";
-    }
+    }*/
 
     @GetMapping("/members/new")
     public String createMemberForm(Model model){
