@@ -21,19 +21,22 @@ public class Post extends BaseEntity {
     @Id @GeneratedValue
     private Long id;
 
-    @Column(length = 500, nullable = false)
     private String title;
 
-    @Column(columnDefinition = "TEXT", nullable = false) // 타입을 TEXT로 변경경
+   // @Column(columnDefinition = "TEXT") // 타입을 TEXT로 변경경
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Item item;
+   /* @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Item item;*/
 
+    public Post(PostRequestDto requestDto){
+        this.title = requestDto.getTitle();
+        this.content = requestDto.getContent();
+    }
 
     @Builder
     public Post(String title, String content){

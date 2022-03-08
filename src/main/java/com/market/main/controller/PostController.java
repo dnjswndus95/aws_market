@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -26,11 +27,11 @@ public class PostController {
     }
 
     @PostMapping("/post/new")
-    public String registerPost(PostRequestDto postRequestDto, BindingResult result){
+    public String save(PostRequestDto postRequestDto, BindingResult result){
         if(result.hasErrors())
             return "post/createPostForm";
-        else{
-            postService.registerPost(postRequestDto);
+        else {
+            postService.save(postRequestDto);
             return "redirect:/";
         }
     }

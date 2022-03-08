@@ -20,11 +20,8 @@ public class PostService {
     private final PostRepository postRepository;
 
     @Transactional
-    public Long registerPost(PostRequestDto requestDto){
-        Post post = Post.builder().title(requestDto.getTitle())
-                        .content(requestDto.getContent())
-                                .build();
-
+    public Long save(PostRequestDto requestDto){
+        Post post = new Post(requestDto);
         postRepository.save(post);
         return post.getId();
     }
@@ -41,6 +38,14 @@ public class PostService {
         post.update(updateDto.getTitle(), updateDto.getContent());
 
         return id;
+    }
+
+    @Transactional
+    public void delete(Long id){
+        Post post = postRepository.findById(id)
+                        .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다."));
+
+        postRepository.delete(post);
     }
 
 

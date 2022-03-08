@@ -20,8 +20,8 @@ public class Item {
     @JoinColumn(name = "CATEGORY_ID")
     private Category category;
 
-    @OneToOne(mappedBy = "item", cascade = CascadeType.ALL)
-    private Post post;
+    /*@OneToOne(mappedBy = "item", cascade = CascadeType.ALL)
+    private Post post;*/
 
 
 }
