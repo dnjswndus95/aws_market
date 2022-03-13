@@ -7,8 +7,7 @@ public class PostResponseDto {
 
     private Long id;
     private String title;
-    private String content;
-    private String author;
+    private String content;    private String author;
 
     public PostResponseDto(Post post){
         this.id = post.getId();
