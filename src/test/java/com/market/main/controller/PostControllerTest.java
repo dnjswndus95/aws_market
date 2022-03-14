@@ -36,7 +36,7 @@ public class PostControllerTest {
         postRepository.deleteAll();
     }
 */
-    @Test
+   /* @Test
     public void 게시물_등록() throws Exception{
         String title = "title";
         String content = "내용";
@@ -54,5 +54,5 @@ public class PostControllerTest {
         List<Post> posts = postService.findAllPost();
         assertThat(posts.get(0).getTitle()).isEqualTo(title);
         assertThat(posts.get(0).getContent()).isEqualTo(content);
-    }
+    }*/
 }

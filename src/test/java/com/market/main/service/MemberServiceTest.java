@@ -22,7 +22,7 @@ class MemberServiceTest {
     @Autowired
     MemberService memberService;
 
-    @Test
+  /*  @Test
     public void joinTest(){
         Member member = new Member("원주연", "dnjswndus95");
         Long joinId = memberService.join(member);
@@ -47,6 +47,6 @@ class MemberServiceTest {
 
         List<Member> allMember = memberService.findAllMember();
         assertThat(allMember).size().isEqualTo(2);
-    }
+    }*/
 
 }
