@@ -13,6 +13,6 @@ public class PostResponseDto {
         this.id = post.getId();
         this.title = post.getTitle();
         this.content = post.getContent();
-        this.author = post.getMember().getName();
+        this.author = post.getAuthor();
     }
 }

@@ -40,8 +40,8 @@ public class Member extends BaseEntity {
     private Role role;
 
 
-    @OneToMany(mappedBy = "member")
-    private List<Post> posts = new ArrayList<>();
+    /*@OneToMany(mappedBy = "member")
+    private List<Post> posts = new ArrayList<>();*/
 
     protected Member(){}
 

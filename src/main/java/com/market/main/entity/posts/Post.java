@@ -26,9 +26,11 @@ public class Post extends BaseEntity {
    // @Column(columnDefinition = "TEXT") // 타입을 TEXT로 변경경
     private String content;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MEMBER_ID")
-    private Member member;
+    private Member member;*/
+
+    private String author;
 
    /* @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Item item;*/
