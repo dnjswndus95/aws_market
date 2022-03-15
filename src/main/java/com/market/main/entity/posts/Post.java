@@ -1,7 +1,6 @@
 package com.market.main.entity.posts;
 
 import com.market.main.entity.BaseEntity;
-import com.market.main.entity.Item;
 import com.market.main.entity.member.Member;
 import lombok.Builder;
 import lombok.Getter;

@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+/*@Entity
 @Getter
 public class Category {
 
@@ -26,4 +26,4 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private List<Item> items = new ArrayList<>();
 
-}
+}*/
