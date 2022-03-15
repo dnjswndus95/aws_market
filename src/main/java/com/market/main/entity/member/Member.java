@@ -66,6 +66,7 @@ public class Member extends BaseEntity {
         this.address = address;
     }
 
+
     public Member(MemberForm memberForm){
         this.name = memberForm.getName();
         this.account = memberForm.getAccount();
