@@ -1,6 +1,13 @@
 buildscript {
 	ext {
 		queryDslVersion = "5.0.0"
+		springBootVersion= '2.6.4.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
 
