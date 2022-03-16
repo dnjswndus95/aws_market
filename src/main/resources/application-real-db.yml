@@ -1,0 +1,11 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show_sql: false
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mariadb://aws-market.cm7tu0nngbsw.ap-northeast-2.rds.amazonaws.com:3306/awsmarket
+      username: wonjuyeon
+      password: juyeoun1158!
+      driver-class-name: org.mariadb.jdbc.Driver
